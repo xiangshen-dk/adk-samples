@@ -135,12 +135,12 @@ async def save_plan_to_state_tool(
     guideline_files: list[str],
     asset_files: list[str],
     tool_context: ToolContext,
-    additional_guidance: str | None = None,
+    additional_guidance: str = "",
 ) -> str:
     """Saves the evaluation plan to the session state."""
     tool_context.state["guideline_files"] = guideline_files
     tool_context.state["asset_files"] = asset_files
-    tool_context.state["additional_guidance"] = additional_guidance or ""
+    tool_context.state["additional_guidance"] = additional_guidance
     logger.info(
         "Saved plan to state: %d guidelines, %d assets.",
         len(guideline_files),
